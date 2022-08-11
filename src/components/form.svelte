@@ -13,15 +13,11 @@
         console.log(title);
         console.log(link);
         console.log(outcome);
-        addCompany(company, title) //defined in store
-        company = '';
-        // addTitle(title)
-        // let title = '';
-        // addLink(link)
+        addCompany(company, title, link, outcome) //defined in store
+        // company = '';
+        // let title = ''; //this line messes it up
         // let link = '';
-        // addDue(due)
         // //let due = '';
-        // //addOutcome(outcome)
         // let outcome = '';
     } 
 
@@ -106,13 +102,13 @@
                 class="appearance-none shadow-sm border border-gray-300 p-2 focus:outline-none focus:border-gray-500 rounded-lg " 
             />
         </div>
-
+        
         <div class="py-7 px-3">
             <button type="submit" class="shadow-sm rounded bg-blue-400 hover:bg-blue-500 text-white py-2 px-4">
                 Add Job
             </button>
         </div>
+
     </div>
-    
     
 </form>
