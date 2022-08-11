@@ -9,7 +9,7 @@
         <p>{job.text}</p>
     </div>
     <div class="flex flex-col text-sm mb-2 mx-3 bg-gray-300 px-4 py-2 rounded-lg w-40">
-        <p>Title</p>
+        <p>{job.text2}</p>
     </div>
     <div class="flex flex-col text-sm mb-2 mx-3 bg-gray-300 px-4 py-2 rounded-lg w-40">
         <p>Link</p>

@@ -28,7 +28,7 @@
 
 </div>
 <main>
-    {#each $jobCompany as company}
-        <Row job={company}/>
+    {#each $jobCompany as job}
+        <Row job={job}/>
     {/each}
 </main>

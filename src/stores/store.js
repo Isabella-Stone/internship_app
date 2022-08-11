@@ -2,7 +2,7 @@ import { writable } from 'svelte/store';
 
 export const jobCompany = writable([]);
 
-export const addCompany = async (text) => {
+export const addCompany = async (text, text2) => {
     // const {data, error} = await supabase.from('todos').insert([{text, completed:false}]);
     // if(error) {
     //     return console.error(error);
@@ -10,7 +10,7 @@ export const addCompany = async (text) => {
     //jobs.update(cur => [...cur, data[0]]);
 
     jobCompany.update( (cur) => {
-        const newCompany = [...cur, {text}];
+        const newCompany = [...cur, {text, text2}];
         return newCompany;
     })
     // jobCompany.update( (cur) => {

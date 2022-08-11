@@ -9,7 +9,11 @@
 
     //just to save the internship to the list, each row will be a list
     const handleSubmit = () => {
-        addCompany(company) //defined in store
+        console.log(company);
+        console.log(title);
+        console.log(link);
+        console.log(outcome);
+        addCompany(company, title) //defined in store
         company = '';
         // addTitle(title)
         // let title = '';
@@ -30,14 +34,14 @@
     <div class="flex flex-row justify-center">
     <!-- <div class="flex flex-row justify-center h-screen"> -->
         <div class="flex flex-col text-sm mb-2 px-3">
-            <label for="todo" class="font-bold mb-2 text-gray-800 float-left">
+            <label for="company" class="font-bold mb-2 text-gray-800 float-left">
                 Company
             </label>
     
             <!--everytime we change 'company' it will update the var bc of the 'bind'-->
             <input
                 type="text"
-                name="todo"
+                name="company"
                 bind:value={company} 
                 placeholder="ex. Google"
                 class="appearance-none shadow-sm border border-gray-300 p-2 focus:outline-none focus:border-gray-500 rounded-lg" 
@@ -45,14 +49,14 @@
         </div>
 
         <div class="flex flex-col text-sm mb-2 px-3">
-            <label for="todo" class="font-bold mb-2 text-gray-800 float-left">
+            <label for="title" class="font-bold mb-2 text-gray-800 float-left">
                 Job Title
             </label>
     
             <!--everytime we change 'title' it will update the var bc of the 'bind'-->
             <input
                 type="text"
-                name="todo"
+                name="title"
                 bind:value={title} 
                 placeholder="ex. frontend intern"
                 class="appearance-none shadow-sm border border-gray-300 p-2 focus:outline-none focus:border-gray-500 rounded-lg " 
@@ -60,14 +64,14 @@
         </div>
 
         <div class="flex flex-col text-sm mb-2 px-3">
-            <label for="todo" class="font-bold mb-2 text-gray-800 float-left">
+            <label for="link" class="font-bold mb-2 text-gray-800 float-left">
                 Link to Portal
             </label>
     
             <!--everytime we change 'link' it will update the var bc of the 'bind'-->
             <input
                 type="text"
-                name="todo"
+                name="link"
                 bind:value={link} 
                 placeholder="..."
                 class="appearance-none shadow-sm border border-gray-300 p-2 focus:outline-none focus:border-gray-500 rounded-lg " 
@@ -75,13 +79,13 @@
         </div>
 
         <!-- <div class="flex flex-col text-sm mb-2 px-3">
-            <label for="todo" class="font-bold mb-2 text-gray-800 float-left">
+            <label for="due" class="font-bold mb-2 text-gray-800 float-left">
                 Submitted/duedate
             </label>
     
             <input
                 type="text"
-                name="todo"
+                name="due"
                 bind:value={due} 
                 placeholder="done/todo"
                 class="appearance-none shadow-sm border border-gray-300 p-2 focus:outline-none focus:border-gray-500 rounded-lg " 
@@ -89,14 +93,14 @@
         </div> -->
 
         <div class="flex flex-col text-sm mb-2 px-3">
-            <label for="todo" class="font-bold mb-2 text-gray-800 float-left">
+            <label for="outcome" class="font-bold mb-2 text-gray-800 float-left">
                 Outcome
             </label>
     
             <!--everytime we change 'due' it will update the var bc of the 'bind'-->
             <input
                 type="text"
-                name="todo"
+                name="outcome"
                 bind:value={outcome} 
                 placeholder="accepted/denied"
                 class="appearance-none shadow-sm border border-gray-300 p-2 focus:outline-none focus:border-gray-500 rounded-lg " 
