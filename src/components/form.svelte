@@ -4,8 +4,8 @@
     let company = '';
     let title = '';
     let link = '';
+    // let due = '';
     let outcome = '';
-    let due = '';
 
     //just to save the internship to the list, each row will be a list
     const handleSubmit = () => {
@@ -15,10 +15,10 @@
         // let title = '';
         // addLink(link)
         // let link = '';
-        // addOutcome(outcome)
-        // let outcome = '';
         // addDue(due)
-        // let due = '';
+        // //let due = '';
+        // //addOutcome(outcome)
+        // let outcome = '';
     } 
 
 
@@ -27,8 +27,9 @@
 
 <form on:submit|preventDefault={handleSubmit}>
 
-    <div class="flex flex-row justify-center h-screen">
-        <div class="flex flex-col text-sm mb-2">
+    <div class="flex flex-row justify-center">
+    <!-- <div class="flex flex-row justify-center h-screen"> -->
+        <div class="flex flex-col text-sm mb-2 px-3">
             <label for="todo" class="font-bold mb-2 text-gray-800 float-left">
                 Company
             </label>
@@ -39,11 +40,11 @@
                 name="todo"
                 bind:value={company} 
                 placeholder="ex. Google"
-                class="appearance-none shadow-sm border border-gray-200 p-2 focus:outline-none focus:border-gray-500 rounded-lg " 
+                class="appearance-none shadow-sm border border-gray-300 p-2 focus:outline-none focus:border-gray-500 rounded-lg" 
             />
         </div>
 
-        <div class="flex flex-col text-sm mb-2">
+        <div class="flex flex-col text-sm mb-2 px-3">
             <label for="todo" class="font-bold mb-2 text-gray-800 float-left">
                 Job Title
             </label>
@@ -54,11 +55,11 @@
                 name="todo"
                 bind:value={title} 
                 placeholder="ex. frontend intern"
-                class="appearance-none shadow-sm border border-gray-200 p-2 focus:outline-none focus:border-gray-500 rounded-lg " 
+                class="appearance-none shadow-sm border border-gray-300 p-2 focus:outline-none focus:border-gray-500 rounded-lg " 
             />
         </div>
 
-        <div class="flex flex-col text-sm mb-2">
+        <div class="flex flex-col text-sm mb-2 px-3">
             <label for="todo" class="font-bold mb-2 text-gray-800 float-left">
                 Link to Portal
             </label>
@@ -69,43 +70,42 @@
                 name="todo"
                 bind:value={link} 
                 placeholder="..."
-                class="appearance-none shadow-sm border border-gray-200 p-2 focus:outline-none focus:border-gray-500 rounded-lg " 
+                class="appearance-none shadow-sm border border-gray-300 p-2 focus:outline-none focus:border-gray-500 rounded-lg " 
             />
         </div>
 
-        <div class="flex flex-col text-sm mb-2">
+        <!-- <div class="flex flex-col text-sm mb-2 px-3">
             <label for="todo" class="font-bold mb-2 text-gray-800 float-left">
-                Outcome
+                Submitted/duedate
             </label>
     
-            <!--everytime we change 'outcome' it will update the var bc of the 'bind'-->
             <input
                 type="text"
                 name="todo"
-                bind:value={outcome} 
-                placeholder="accepted/denied"
-                class="appearance-none shadow-sm border border-gray-200 p-2 focus:outline-none focus:border-gray-500 rounded-lg " 
+                bind:value={due} 
+                placeholder="done/todo"
+                class="appearance-none shadow-sm border border-gray-300 p-2 focus:outline-none focus:border-gray-500 rounded-lg " 
             />
-        </div>
+        </div> -->
 
-        <div class="flex flex-col text-sm mb-2">
+        <div class="flex flex-col text-sm mb-2 px-3">
             <label for="todo" class="font-bold mb-2 text-gray-800 float-left">
-                Submitted/duedate
+                Outcome
             </label>
     
             <!--everytime we change 'due' it will update the var bc of the 'bind'-->
             <input
                 type="text"
                 name="todo"
-                bind:value={due} 
-                placeholder="done/todo"
-                class="appearance-none shadow-sm border border-gray-200 p-2 focus:outline-none focus:border-gray-500 rounded-lg " 
+                bind:value={outcome} 
+                placeholder="accepted/denied"
+                class="appearance-none shadow-sm border border-gray-300 p-2 focus:outline-none focus:border-gray-500 rounded-lg " 
             />
         </div>
 
-        <div class="py-7">
-            <button type="submit" class="shadow-sm rounded bg-blue-500 hover:bg-blue-600 text-white py-2 px-4">
-                Submit
+        <div class="py-7 px-3">
+            <button type="submit" class="shadow-sm rounded bg-blue-400 hover:bg-blue-500 text-white py-2 px-4">
+                Add Job
             </button>
         </div>
     </div>
