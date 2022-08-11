@@ -1,5 +1,5 @@
 <script>
-    import {newJob} from "../stores/store.js";
+    import {jobList} from "../stores/store.js";
     import Row from "../components/row.svelte";
 </script>
 
@@ -28,7 +28,7 @@
 
 </div>
 <main>
-    {#each $newJob as job}
+    {#each $jobList as job}
         <Row job={job}/>
     {/each}
 </main>

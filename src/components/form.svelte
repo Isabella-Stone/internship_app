@@ -1,6 +1,6 @@
 <script>
     // import {user} from "../stores/authStore.js";
-    import {addCompany} from '../stores/store.js';
+    import {addJob} from '../stores/store.js';
     let company = '';
     let title = '';
     let link = '';
@@ -13,7 +13,7 @@
         console.log(title);
         console.log(link);
         console.log(outcome);
-        addCompany(company, title, link, outcome) //defined in store
+        addJob(company, title, link, outcome) //defined in store
         // company = '';
         // let title = ''; //this line messes it up
         // let link = '';
@@ -102,7 +102,7 @@
                 class="appearance-none shadow-sm border border-gray-300 p-2 focus:outline-none focus:border-gray-500 rounded-lg " 
             />
         </div>
-        
+
         <div class="py-7 px-3">
             <button type="submit" class="shadow-sm rounded bg-blue-400 hover:bg-blue-500 text-white py-2 px-4">
                 Add Job
