@@ -1,6 +1,7 @@
 <script>
-    // import {user} from "../stores/authStore.js";
     import {addJob} from '../stores/store.js';
+    import {user} from "../stores/authStore.js";
+    
     let company = '';
     let title = '';
     let link = '';
@@ -13,7 +14,7 @@
         console.log(title);
         console.log(link);
         console.log(outcome);
-        addJob(company, title, link, outcome) //defined in store
+        addJob(company, title, link, outcome, $user.id) //defined in store
         // company = '';
         // let title = ''; //this line messes it up
         // let link = '';

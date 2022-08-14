@@ -1,21 +1,34 @@
 import { writable } from 'svelte/store';
+import {supabase} from "../supabase.js";
 
 export const jobList = writable([]);
 
-export const addJob = (company, title, link, outcome) => {
-    // const {data, error} = await supabase.from('todos').insert([{text, completed:false}]);
-    // if(error) {
-    //     return console.error(error);
-    // }
-    //jobs.update(cur => [...cur, data[0]]);
+//load users todos from db
+export const loadJobs = async () => {
+    const {data, error} = await supabase.from('jobs').select();
+    if (error) {
+        return console.error(error);
+    }
+    jobList.set(data);
+}
 
-    jobList.update( (cur) => {
-        const newCompany = [...cur, {company, title, link, outcome, id: Date.now()}];
-        return newCompany;
-    })
+export const addJob = async (company, title, portal, outcome, user_id) => {
+    const {data, error} = await supabase.from('jobs').insert([{company, title, portal, outcome, user_id}]);
+    if (error) {
+        return console.error(error);
+    }
+    jobList.update((cur) => [...cur, data[0]]);
+    // jobList.update( (cur) => {
+    //     const newCompany = [...cur, {company, title, link, outcome, id: Date.now()}];
+    //     return newCompany;
+    // })
 };
 
-export const deleteJob = (id) => {
+export const deleteJob = async (id) => {
+    const {error} = await supabase.from('jobs').delete().match({id});
+    if (error) {
+        return console.error(error);
+    }
     jobList.update(jobs => jobs.filter(job => job.id !== id));
 };
 
