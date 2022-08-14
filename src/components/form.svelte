@@ -15,11 +15,11 @@
         console.log(link);
         console.log(outcome);
         addJob(company, title, link, outcome, $user.id) //defined in store
-        // company = '';
-        // let title = ''; //this line messes it up
-        // let link = '';
+        company = '';
+        title = '';
+        link = '';
         // //let due = '';
-        // let outcome = '';
+        outcome = '';
     } 
 
 
@@ -28,7 +28,7 @@
 
 <form on:submit|preventDefault={handleSubmit}>
 
-    <div class="flex flex-row justify-center">
+<div class="flex flex-row justify-center">
     <!-- <div class="flex flex-row justify-center h-screen"> -->
         <div class="flex flex-col text-sm mb-2 px-3">
             <label for="company" class="font-bold mb-2 text-gray-800 float-left">

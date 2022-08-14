@@ -3,7 +3,7 @@ import {supabase} from "../supabase.js";
 
 export const jobList = writable([]);
 
-//load users todos from db
+//load specific users todos from db
 export const loadJobs = async () => {
     const {data, error} = await supabase.from('jobs').select();
     if (error) {
@@ -18,10 +18,6 @@ export const addJob = async (company, title, portal, outcome, user_id) => {
         return console.error(error);
     }
     jobList.update((cur) => [...cur, data[0]]);
-    // jobList.update( (cur) => {
-    //     const newCompany = [...cur, {company, title, link, outcome, id: Date.now()}];
-    //     return newCompany;
-    // })
 };
 
 export const deleteJob = async (id) => {

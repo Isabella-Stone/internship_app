@@ -23,17 +23,25 @@
     }
 </script>
 
-<h1 class="text-2xl font-bold text-center text-black-800 md:text-3xl">Log In</h1>
-<p class="text-center mt-2">Sign in via magic link with your email below</p>
-
 <form on:submit|preventDefault={handleLogin}>
-    <div class="flex flex-col text-sm mb-2">
-        <label class="font-bold mb-2 text-gray-800" for="email"></label>
-        <input class="appearance-none shadow-sm border border-gray-200 p-2 focus:outline-none focus:border-gray-500 rounded-lg" 
-        name="email" type="email" placeholder="enter email" bind:value={email}>
+    <!-- <div class="flex flex-col text-sm mb-2"> -->
+    <!-- <div class="grid h-screen place-items-center"> -->
+    <div style="background-image: url(/bg.jpg)"
+        class="flex h-screen justify-center pt-20">
+        <div class="flex flex-col text-sm mb-2 container mx-auto my-6 max-w-sm">
+            <h1 class="text-2xl font-bold text-center text-zinc-600 md:text-3xl">Login</h1>
+            <p class="text-center mt-2 text-zinc-600">Enter your email below to sign in via a magic link</p>
+            
+            <label class="font-bold mb-2 text-gray-800" for="email"></label>
+            <input class="appearance-none shadow-sm border border-gray-200 p-2 focus:outline-none focus:border-gray-500 rounded-lg mt-2" 
+            name="email" type="email" placeholder="enter email" bind:value={email}>
+    
+            <button class="shadow-sm rounded bg-cyan-400 hover:bg-cyan-500 text-white py-2 px-4 mt-2" type="submit">
+                Log In
+            </button>
+        </div>
     </div>
+    
 
-    <button class="shadow-sm rounded bg-blue-400 hover:bg-blue-500 text-white py-2 px-4" type="submit">
-        Log In
-    </button>
+    
 </form>
