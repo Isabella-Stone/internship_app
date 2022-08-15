@@ -20,6 +20,11 @@ export const addJob = async (company, title, portal, outcome, user_id) => {
     jobList.update((cur) => [...cur, data[0]]);
 };
 
+export const editJob = async (company, title, portal, outcome, user_id, id) => {
+    deleteJob(id);
+    addJob(company, title, portal, outcome, user_id);
+};
+
 export const deleteJob = async (id) => {
     const {error} = await supabase.from('jobs').delete().match({id});
     if (error) {

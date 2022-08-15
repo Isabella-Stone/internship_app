@@ -24,8 +24,6 @@
 </script>
 
 <form on:submit|preventDefault={handleLogin}>
-    <!-- <div class="flex flex-col text-sm mb-2"> -->
-    <!-- <div class="grid h-screen place-items-center"> -->
     <div style="background-image: url(/bg.jpg)"
         class="flex h-screen justify-center pt-20">
         <div class="flex flex-col text-sm mb-2 container mx-auto my-6 max-w-sm">
@@ -41,7 +39,4 @@
             </button>
         </div>
     </div>
-    
-
-    
 </form>
