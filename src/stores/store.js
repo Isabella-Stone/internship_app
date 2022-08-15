@@ -20,9 +20,32 @@ export const addJob = async (company, title, portal, outcome, user_id) => {
     jobList.update((cur) => [...cur, data[0]]);
 };
 
-export const editJob = async (company, title, portal, outcome, user_id, id) => {
-    deleteJob(id);
-    addJob(company, title, portal, outcome, user_id);
+export const editJob = async (newCompany, newTitle, newPortal, newOutcome, id) => {
+    // deleteJob(id);
+    // addJob(company, title, portal, outcome, user_id);
+
+    //locate job based on it's id
+    const {data, error} = await supabase.from('jobs').update({ company: newCompany }).eq('id', id);
+    if (error) {
+        return console.error(error);
+    }
+
+    const {data2, error2} = await supabase.from('jobs').update({ title: newTitle }).eq('id', id);
+    if (error2) {
+        return console.error(error);
+    }
+
+    const {data3, error3} = await supabase.from('jobs').update({ portal: newPortal }).eq('id', id);
+    if (error3) {
+        return console.error(error);
+    }
+
+    const {data4, error4} = await supabase.from('jobs').update({ outcome: newOutcome }).eq('id', id);
+    if (error4) {
+        return console.error(error);
+    }
+
+    loadJobs(); //show changes 
 };
 
 export const deleteJob = async (id) => {
