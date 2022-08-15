@@ -1,4 +1,4 @@
-import { writable } from 'svelte/store';
+import {writable} from 'svelte/store';
 import {supabase} from "../supabase.js";
 
 export const jobList = writable([]);

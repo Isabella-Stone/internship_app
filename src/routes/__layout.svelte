@@ -1,4 +1,4 @@
-<script>
+<script context="module">
     import {supabase} from "../supabase.js";
     import Nav from "../components/Nav.svelte";
     import Auth from "../components/Auth.svelte";
@@ -20,6 +20,7 @@
 
 <div>
     {#if $user}
+        <!-- <div class="h-screen bg-gradient-to-b from-rose-100 to-rose-300"> -->
         <Nav />
         <slot />
         <Form />

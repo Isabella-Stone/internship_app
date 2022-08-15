@@ -105,7 +105,7 @@
         </div>
 
         <div class="py-7 px-3">
-            <button type="submit" class="shadow-sm rounded bg-blue-400 hover:bg-blue-500 text-white py-2 px-4">
+            <button type="submit" class="shadow-sm rounded bg-cyan-500 hover:bg-cyan-600 text-white py-2 px-4">
                 Add Job
             </button>
         </div>
