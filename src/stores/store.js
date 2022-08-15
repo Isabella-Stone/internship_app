@@ -5,15 +5,15 @@ export const jobList = writable([]);
 
 //load specific users todos from db
 export const loadJobs = async () => {
-    const {data, error} = await supabase.from('jobs').select();
+    const {data, error} = await supabase.from('jobs').select().order('date_created', { ascending: false })
     if (error) {
         return console.error(error);
     }
     jobList.set(data);
 }
 
-export const addJob = async (company, title, portal, outcome, user_id) => {
-    const {data, error} = await supabase.from('jobs').insert([{company, title, portal, outcome, user_id}]);
+export const addJob = async (company, title, portal, outcome, user_id, date_created) => {
+    const {data, error} = await supabase.from('jobs').insert([{company, title, portal, outcome, user_id, date_created}]);
     if (error) {
         return console.error(error);
     }

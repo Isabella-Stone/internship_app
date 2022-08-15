@@ -34,7 +34,7 @@
             <input class="appearance-none shadow-sm border border-gray-200 p-2 focus:outline-none focus:border-gray-500 rounded-lg mt-2" 
             name="email" type="email" placeholder="email address" bind:value={email}>
     
-            <button class="shadow-sm rounded bg-cyan-400 hover:bg-cyan-500 text-white py-2 px-4 mt-2" type="submit">
+            <button class="shadow-sm rounded bg-cyan-500 hover:bg-cyan-600 text-white py-2 px-4 mt-2" type="submit">
                 Log In
             </button>
         </div>

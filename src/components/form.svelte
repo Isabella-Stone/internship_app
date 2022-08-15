@@ -14,7 +14,7 @@
         console.log(title);
         console.log(link);
         console.log(outcome);
-        addJob(company, title, link, outcome, $user.id) //defined in store
+        addJob(company, title, link, outcome, $user.id, Date.now()) //defined in store
         company = '';
         title = '';
         link = '';
