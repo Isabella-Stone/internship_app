@@ -84,4 +84,3 @@ export const deleteJob = async (id) => {
     }
     jobList.update(jobs => jobs.filter(job => job.id !== id));
 };
-

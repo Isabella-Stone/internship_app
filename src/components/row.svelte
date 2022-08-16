@@ -14,7 +14,6 @@
     }
 
     function flagClick() {
-        // job.submitted = !job.submitted;
         editStatus(job.submitted, job.id); //change submitted
         showFlag = !showFlag;
     }
@@ -56,10 +55,12 @@
     {#if showSave}
         <div class="overflow-hidden flex flex-col text-sm mb-2 mx-3 bg-gray-300 hover:bg-gray-400 px-2 py-2 rounded-lg w-40">
             {#if showFlag} 
-                <div contenteditable="true" id="companyId" class="flex flex-row">
+            <div class="flex flex-row">
+                <div contenteditable="true" id="companyId">
                     {job.company}
-                    <img src="/flag.png" alt="flag" class="w-[18px] h-[18px]">
                 </div>
+                <img src="/flag.png" alt="flag" class="w-[18px] h-[18px]">
+            </div>
             {:else} 
                 <div contenteditable="true" id="companyId" class="flex flex-row">
                     {job.company}
@@ -137,5 +138,3 @@
     </div>
 
 </div>
-
-
