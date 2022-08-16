@@ -12,8 +12,8 @@ export const loadJobs = async () => {
     jobList.set(data);
 }
 
-export const addJob = async (company, title, portal, outcome, user_id, date_created) => {
-    const {data, error} = await supabase.from('jobs').insert([{company, title, portal, outcome, user_id, date_created}]);
+export const addJob = async (company, title, portal, outcome, submitted, user_id, date_created) => {
+    const {data, error} = await supabase.from('jobs').insert([{company, title, portal, outcome, submitted, user_id, date_created}]);
     if (error) {
         return console.error(error);
     }
@@ -47,6 +47,13 @@ export const editJob = async (newCompany, newTitle, newPortal, newOutcome, id) =
 
     loadJobs(); //show changes 
 };
+
+export const editStatus = async (newStatus, id) => {
+    const {data, error} = await supabase.from('jobs').update({ submitted: newStatus }).eq('id', id);
+    if (error) {
+        return console.error(error);
+    }
+}
 
 export const deleteJob = async (id) => {
     const {error} = await supabase.from('jobs').delete().match({id});
