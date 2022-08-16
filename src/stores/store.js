@@ -12,15 +12,15 @@ export const loadJobs = async () => {
     jobList.set(data);
 }
 
-export const addJob = async (company, title, portal, outcome, submitted, user_id, date_created) => {
-    const {data, error} = await supabase.from('jobs').insert([{company, title, portal, outcome, submitted, user_id, date_created}]);
+export const addJob = async (company, title, portal, due, outcome, user_id, date_created) => {
+    const {data, error} = await supabase.from('jobs').insert([{company, title, portal, due, outcome, user_id, date_created}]);
     if (error) {
         return console.error(error);
     }
     jobList.update((cur) => [...cur, data[0]]);
 };
 
-export const editJob = async (newCompany, newTitle, newPortal, newOutcome, id) => {
+export const editJob = async (newCompany, newTitle, newPortal, newDue, newOutcome, id) => {
     // deleteJob(id);
     // addJob(company, title, portal, outcome, user_id);
 
@@ -40,8 +40,13 @@ export const editJob = async (newCompany, newTitle, newPortal, newOutcome, id) =
         return console.error(error);
     }
 
-    const {data4, error4} = await supabase.from('jobs').update({ outcome: newOutcome }).eq('id', id);
+    const {data4, error4} = await supabase.from('jobs').update({ due: newDue }).eq('id', id);
     if (error4) {
+        return console.error(error);
+    }
+
+    const {data5, error5} = await supabase.from('jobs').update({ outcome: newOutcome }).eq('id', id);
+    if (error5) {
         return console.error(error);
     }
 

@@ -5,24 +5,22 @@
     let company = '';
     let title = '';
     let link = '';
-    // let due = '';
+    let due = '';
     let outcome = '';
-    let submitted = null;
 
     //just to save the internship to the list, each row will be a list
     const handleSubmit = () => {
-        console.log(company);
-        console.log(title);
-        console.log(link);
-        console.log(outcome);
-        console.log(submitted);
-        addJob(company, title, link, outcome, submitted, $user.id, Date.now()) //defined in store
+        // console.log(company);
+        // console.log(title);
+        // console.log(link);
+        // console.log(due);
+        // console.log(outcome);
+        addJob(company, title, link, due, outcome, $user.id, Date.now()) //defined in store
         company = '';
         title = '';
         link = '';
-        // //let due = '';
+        due = '';
         outcome = '';
-        submitted = null;
     } 
 
 
@@ -78,19 +76,20 @@
             />
         </div>
 
-        <!-- <div class="flex flex-col text-sm mb-2 px-3">
-            <label for="due" class="font-bold mb-2 text-gray-800 float-left">
-                Submitted/duedate
+        <div class="flex flex-col text-sm mb-2 px-3">
+            <label for="flag" class="font-bold mb-2 text-gray-800 float-left">
+                Due Date/Submitted
             </label>
     
+            <!--everytime we change 'due' it will update the var bc of the 'bind'-->
             <input
                 type="text"
-                name="due"
+                name="flag"
                 bind:value={due} 
-                placeholder="done/todo"
+                placeholder="mm/dd/yy/submitted"
                 class="appearance-none shadow-sm border border-gray-300 p-2 focus:outline-none focus:border-gray-500 rounded-lg " 
             />
-        </div> -->
+        </div>
 
         <div class="flex flex-col text-sm mb-2 px-3">
             <label for="outcome" class="font-bold mb-2 text-gray-800 float-left">
@@ -103,21 +102,6 @@
                 name="outcome"
                 bind:value={outcome} 
                 placeholder="accepted/denied/tbd"
-                class="appearance-none shadow-sm border border-gray-300 p-2 focus:outline-none focus:border-gray-500 rounded-lg " 
-            />
-        </div>
-
-        <div class="flex flex-col text-sm mb-2 px-3">
-            <label for="flag" class="font-bold mb-2 text-gray-800 float-left">
-                Application Submitted
-            </label>
-    
-            <!--everytime we change 'submitted' it will update the var bc of the 'bind'-->
-            <input
-                type="text"
-                name="flag"
-                bind:value={submitted} 
-                placeholder="true/false"
                 class="appearance-none shadow-sm border border-gray-300 p-2 focus:outline-none focus:border-gray-500 rounded-lg " 
             />
         </div>

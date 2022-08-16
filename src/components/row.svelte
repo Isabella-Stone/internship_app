@@ -6,16 +6,10 @@
 
     let showSave = false;
     let showEdit = true;
-    let showFlag = !job.submitted;
 
     function editMode() {
         showSave = true;
         showEdit = false;
-    }
-
-    function flagClick() {
-        editStatus(job.submitted, job.id); //change submitted
-        showFlag = !showFlag;
     }
 
     function saveRow() {
@@ -25,6 +19,7 @@
         editJob(document.getElementById("companyId").innerHTML, //newCompany
                 document.getElementById("titleId").innerHTML,   //newTitle 
                 document.getElementById("portalId").innerHTML,  //newPortal
+                document.getElementById("dueId").innerHTML,     //newDue
                 document.getElementById("outcomeId").innerHTML, //newOutcome
                 job.id);
         
@@ -54,40 +49,20 @@
     <!-- company cell -->
     {#if showSave}
         <div class="overflow-hidden flex flex-col text-sm mb-2 mx-3 bg-gray-300 hover:bg-gray-400 px-2 py-2 rounded-lg w-40">
-            {#if showFlag} 
-            <div class="flex flex-row">
-                <div contenteditable="true" id="companyId">
-                    {job.company}
-                </div>
-                <img src="/flag.png" alt="flag" class="w-[18px] h-[18px]">
+            <div contenteditable="true" id="companyId" class="flex flex-row">
+                {job.company}
             </div>
-            {:else} 
-                <div contenteditable="true" id="companyId" class="flex flex-row">
-                    {job.company}
-                </div>
-            {/if}
         </div>
     {:else}
-        <div class="overflow-hidden flex flex-col text-sm mb-2 mx-3 bg-gray-300 px-2 py-2 rounded-lg w-40">
-            {#if showFlag} 
-                <div class="flex flex-row">
-                    {job.company}
-                    <!-- <button on:click={() => editStatus(job.submitted, job.id)}> -->
-                    <button on:click={flagClick} class="flex flex-row">
-                        <img src="/flag.png" alt="flag" class="w-[18px] h-[18px] hover:opacity-25">
-                        <div class="text-red-500">8/15/22</div>
-                    </button>
-                </div>
-            {:else} 
-                <div class="flex flex-row">
-                    {job.company}
-                    <!-- <button on:click={() => editStatus(job.submitted, job.id)}> -->
-                    <button on:click={flagClick}>
-                        <img src="/flag.png" alt="flag" class="w-[18px] h-[18px] opacity-0 hover:opacity-25">
-                    </button>
-                </div>
-            {/if}
-        </div>
+        {#if job.due !== "submitted"} 
+            <div class="overflow-hidden flex flex-col text-sm mb-2 mx-3 bg-red-300 px-2 py-2 rounded-lg w-40">
+                {job.company}
+            </div>
+        {:else}
+            <div class="overflow-hidden flex flex-col text-sm mb-2 mx-3 bg-gray-300 px-2 py-2 rounded-lg w-40">
+                {job.company}
+            </div>
+        {/if}
     {/if}
 
     <!-- title cell -->
@@ -96,9 +71,15 @@
             {job.title}
         </div>
     {:else}
-        <div class="overflow-hidden flex flex-col text-sm mb-2 mx-3 bg-gray-300 px-2 py-2 rounded-lg w-40">
-            {job.title}
-        </div>
+        {#if job.due !== "submitted"} 
+            <div class="overflow-hidden flex flex-col text-sm mb-2 mx-3 bg-red-300 px-2 py-2 rounded-lg w-40">
+                {job.title}
+            </div>
+        {:else}
+            <div class="overflow-hidden flex flex-col text-sm mb-2 mx-3 bg-gray-300 px-2 py-2 rounded-lg w-40">
+                {job.title}
+            </div>
+        {/if}
     {/if}
 
     <!-- portal cell -->
@@ -109,16 +90,37 @@
             {/if}
         </div>
     {:else}
-        <div class="overflow-hidden overflow-y-hidden flex flex-col text-sm mb-2 mx-3 bg-gray-300 px-2 py-2 rounded-lg w-40 underline text-blue-600 hover:text-blue-800 visited:text-purple-600">
-            {#if job.portal !== ""} 
-                <a href="{job.portal}">{job.company} Portal</a>
-            {/if}
-        </div>
+        {#if job.due !== "submitted"} 
+            <div class="overflow-hidden overflow-y-hidden flex flex-col text-sm mb-2 mx-3 bg-red-300 px-2 py-2 rounded-lg w-40 underline text-blue-600 hover:text-blue-800 visited:text-purple-600">
+                {#if job.portal !== ""} 
+                    <a href="{job.portal}">{job.company} Portal</a>
+                {/if}
+            </div>
+        {:else}
+            <div class="overflow-hidden overflow-y-hidden flex flex-col text-sm mb-2 mx-3 bg-gray-300 px-2 py-2 rounded-lg w-40 underline text-blue-600 hover:text-blue-800 visited:text-purple-600">
+                {#if job.portal !== ""} 
+                    <a href="{job.portal}">{job.company} Portal</a>
+                {/if}
+            </div>
+        {/if}
     {/if}
 
-    <!-- <div class="flex flex-col text-sm mb-2 mx-3 bg-gray-300 px-4 py-2 rounded-lg w-40">
-        <p>Submitted</p>
-    </div> -->
+    <!-- due/submitted cell -->
+    {#if showSave}
+        <div contenteditable="true" id="dueId" class="overflow-hidden flex flex-col text-sm mb-2 mx-3 bg-gray-300 hover:bg-gray-400 px-2 py-2 rounded-lg w-40">
+            {job.due}
+        </div>
+    {:else}
+        {#if job.due !== "submitted"} 
+            <div class="overflow-hidden flex flex-col text-sm mb-2 mx-3 bg-red-300 px-2 py-2 rounded-lg w-40">
+                {job.due}
+            </div>
+        {:else}
+            <div class="overflow-hidden flex flex-col text-sm mb-2 mx-3 bg-gray-300 px-2 py-2 rounded-lg w-40">
+                {job.due}
+            </div>
+        {/if}
+    {/if}
 
     <!-- outcome cell -->
     {#if showSave}
@@ -126,9 +128,15 @@
             {job.outcome}
         </div>
     {:else}
-        <div class="overflow-hidden flex flex-col text-sm mb-2 mx-3 bg-gray-300 px-2 py-2 rounded-lg w-40">
-            {job.outcome}
-        </div>
+        {#if job.due !== "submitted"} 
+            <div class="overflow-hidden flex flex-col text-sm mb-2 mx-3 bg-red-300 px-2 py-2 rounded-lg w-40">
+                {job.outcome}
+            </div>
+        {:else}
+            <div class="overflow-hidden flex flex-col text-sm mb-2 mx-3 bg-gray-300 px-2 py-2 rounded-lg w-40">
+                {job.outcome}
+            </div>
+        {/if}
     {/if}
     
     <!-- delete button -->
