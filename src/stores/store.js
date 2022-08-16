@@ -5,7 +5,7 @@ export const jobList = writable([]);
 
 //load specific users todos from db
 export const loadJobs = async () => {
-    const {data, error} = await supabase.from('jobs').select().order('date_created', { ascending: true })
+    const {data, error} = await supabase.from('jobs').select().order('date_created', { ascending: true });
     if (error) {
         return console.error(error);
     }
@@ -48,11 +48,33 @@ export const editJob = async (newCompany, newTitle, newPortal, newOutcome, id) =
     loadJobs(); //show changes 
 };
 
-export const editStatus = async (newStatus, id) => {
-    const {data, error} = await supabase.from('jobs').update({ submitted: newStatus }).eq('id', id);
+export const editStatus = async (oldStatus, id) => {
+    // const {data, error} = await supabase.from('jobs').update({ submitted: newStatus }).eq('id', id);
+    // if (error) {
+    //     return console.error(error);
+    // }
+    // //loadJobs(); //show changes 
+
+    const {error} = await supabase.from('jobs').update({ submitted: !oldStatus }).match({id});
     if (error) {
         return console.error(error);
     }
+
+    jobList.update((jobs) => {
+        let index = -1;
+        for (let i = 0; i < jobList.length; i++) {
+            if (jobList[i].id === id) {
+                index = i;
+                break;
+            }
+        }
+        if (index !== -1) {
+            jobList[index].submitted = !jobList[index].completed;
+        }
+        return jobList;
+    });
+    
+    loadJobs(); //show changes 
 }
 
 export const deleteJob = async (id) => {

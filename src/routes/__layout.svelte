@@ -24,7 +24,6 @@
 
 <div>
     {#if $user}
-        <!-- <div class="h-screen bg-gradient-to-b from-rose-100 to-rose-300"> -->
         <Nav />
         <slot />
         <Form />

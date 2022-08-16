@@ -14,8 +14,9 @@
     }
 
     function flagClick() {
+        // job.submitted = !job.submitted;
+        editStatus(job.submitted, job.id); //change submitted
         showFlag = !showFlag;
-        editStatus(!job.submitted, job.id); //change submitted
     }
 
     function saveRow() {
@@ -70,6 +71,7 @@
             {#if showFlag} 
                 <div class="flex flex-row">
                     {job.company}
+                    <!-- <button on:click={() => editStatus(job.submitted, job.id)}> -->
                     <button on:click={flagClick}>
                         <img src="/flag.png" alt="flag" class="w-[18px] h-[18px] hover:opacity-25">
                     </button>
@@ -77,6 +79,7 @@
             {:else} 
                 <div class="flex flex-row">
                     {job.company}
+                    <!-- <button on:click={() => editStatus(job.submitted, job.id)}> -->
                     <button on:click={flagClick}>
                         <img src="/flag.png" alt="flag" class="w-[18px] h-[18px] opacity-0 hover:opacity-25">
                     </button>
