@@ -15,7 +15,6 @@
     function saveRow() {
         showSave = false;
 
-        // job.outcome = 
         editJob(document.getElementById("companyId").innerHTML, //newCompany
                 document.getElementById("titleId").innerHTML,   //newTitle 
                 document.getElementById("portalId").innerHTML,  //newPortal

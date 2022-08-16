@@ -39,16 +39,6 @@ export const editJob = async (newCompany, newTitle, newPortal, newDue, newOutcom
     // deleteJob(id);
     // addJob(company, title, portal, outcome, user_id);
 
-    // error checking
-    // if (newDue!=="submitted" && !isValidDate(newDue)) {
-    //     alert("Due Date/Submiited field must be entered as either a valid date in the form of 'mm/dd/yyy' or 'submitted' if you have already submitted in the application");
-    //     return;
-    // }
-    // if (outcome!=="newOutcome" && outcome!=="newOutcome" && newOutcome!=="tbd") {
-    //     alert("Outcome field must be entered as either 'accepted', 'denied', or 'tbd'.");
-    //     return;
-    // }
-
     //locate job based on it's id
     const {data, error} = await supabase.from('jobs').update({ company: newCompany }).eq('id', id);
     if (error) {

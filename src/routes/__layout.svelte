@@ -6,7 +6,6 @@
     import {loadJobs} from "../stores/store.js";
     import Form from "../components/Form.svelte";
     import "../app.css";
-    // console.log(supabase);
 
     user.set(supabase.auth.user());
 
