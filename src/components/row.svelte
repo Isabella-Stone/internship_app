@@ -134,7 +134,14 @@
             </div>
         {:else}
             <div class="overflow-hidden flex flex-col text-sm mb-2 mx-3 bg-gray-300 px-2 py-2 rounded-lg w-40">
-                {job.outcome}
+                {#if job.outcome === "accepted"} 
+                    <p class="text-emerald-600">{job.outcome}</p>
+                {:else if job.outcome === "denied"}
+                    <p class="text-red-600">{job.outcome}</p>
+                {:else} 
+                    {job.outcome}
+                {/if}
+                
             </div>
         {/if}
     {/if}
