@@ -73,8 +73,9 @@
                 <div class="flex flex-row">
                     {job.company}
                     <!-- <button on:click={() => editStatus(job.submitted, job.id)}> -->
-                    <button on:click={flagClick}>
+                    <button on:click={flagClick} class="flex flex-row">
                         <img src="/flag.png" alt="flag" class="w-[18px] h-[18px] hover:opacity-25">
+                        <div class="text-red-500">8/15/22</div>
                     </button>
                 </div>
             {:else} 
@@ -104,7 +105,7 @@
     {#if showSave}
         <div contenteditable="true" id="portalId" class="overflow-hidden flex flex-col text-sm mb-2 mx-3 bg-gray-300 hover:bg-gray-400 px-2 py-2 rounded-lg w-40">
             {#if job.portal !== ""} 
-                <a href="{job.portal}">{job.company} Portal</a>
+                {job.portal}
             {/if}
         </div>
     {:else}
