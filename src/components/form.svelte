@@ -28,7 +28,7 @@
 
 <form on:submit|preventDefault={handleSubmit}>
 
-<div class="flex flex-row justify-center">
+<div class="flex flex-row justify-center pb-10">
     <!-- <div class="flex flex-row justify-center h-screen"> -->
         <div class="flex flex-col text-sm mb-2 px-3">
             <label for="company" class="font-bold mb-2 text-gray-800 float-left">

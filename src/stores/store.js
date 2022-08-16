@@ -5,7 +5,7 @@ export const jobList = writable([]);
 
 //load specific users todos from db
 export const loadJobs = async () => {
-    const {data, error} = await supabase.from('jobs').select().order('date_created', { ascending: false })
+    const {data, error} = await supabase.from('jobs').select().order('date_created', { ascending: true })
     if (error) {
         return console.error(error);
     }
