@@ -15,6 +15,30 @@
         // console.log(link);
         // console.log(due);
         // console.log(outcome);
+        function isValidDate(dateString) {
+            if(!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateString))
+                return false;
+            var parts = dateString.split("/");
+            var day = parseInt(parts[1], 10);
+            var month = parseInt(parts[0], 10);
+            var year = parseInt(parts[2], 10);
+            if(year < 1000 || year > 3000 || month == 0 || month > 12)
+                return false;
+            var monthLength = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
+            if(year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
+                monthLength[1] = 29;
+            return day > 0 && day <= monthLength[month - 1];
+        };
+
+        if (due!=="submitted" && !isValidDate(due)) {
+            alert("Due Date/Submiited field must be entered as either a valid date in the form of 'mm/dd/yyy' or 'submitted' if you have already submitted in the application");
+            return;
+        }
+        if (outcome!=="accepted" && outcome!=="denied" && outcome!=="tbd") {
+            alert("Outcome field must be entered as either 'accepted', 'denied', or 'tbd'.");
+            return;
+        }
+
         addJob(company, title, link, due, outcome, $user.id, Date.now()) //defined in store
         company = '';
         title = '';
@@ -86,7 +110,7 @@
                 type="text"
                 name="flag"
                 bind:value={due} 
-                placeholder="mm/dd/yy/submitted"
+                placeholder="mm/dd/yyyy/submitted"
                 class="appearance-none shadow-sm border border-gray-300 p-2 focus:outline-none focus:border-gray-500 rounded-lg " 
             />
         </div>

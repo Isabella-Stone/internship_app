@@ -15,7 +15,7 @@
     function saveRow() {
         showSave = false;
 
-        job.outcome = 
+        // job.outcome = 
         editJob(document.getElementById("companyId").innerHTML, //newCompany
                 document.getElementById("titleId").innerHTML,   //newTitle 
                 document.getElementById("portalId").innerHTML,  //newPortal
@@ -93,13 +93,13 @@
         {#if job.due !== "submitted"} 
             <div class="overflow-hidden overflow-y-hidden flex flex-col text-sm mb-2 mx-3 bg-red-300 px-2 py-2 rounded-lg w-40 underline text-blue-600 hover:text-blue-800 visited:text-purple-600">
                 {#if job.portal !== ""} 
-                    <a href="{job.portal}">{job.company} Portal</a>
+                    <a href="{job.portal}" target="_blank">{job.company} Portal</a>
                 {/if}
             </div>
         {:else}
             <div class="overflow-hidden overflow-y-hidden flex flex-col text-sm mb-2 mx-3 bg-gray-300 px-2 py-2 rounded-lg w-40 underline text-blue-600 hover:text-blue-800 visited:text-purple-600">
                 {#if job.portal !== ""} 
-                    <a href="{job.portal}">{job.company} Portal</a>
+                    <a href="{job.portal}" target="_blank">{job.company} Portal</a>
                 {/if}
             </div>
         {/if}
