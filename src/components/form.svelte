@@ -86,7 +86,7 @@
                 type="text"
                 name="flag"
                 bind:value={due} 
-                placeholder="mm/dd/yyyy/submitted"
+                placeholder="mm/dd/yy/submitted"
                 class="appearance-none shadow-sm border border-gray-300 p-2 focus:outline-none focus:border-gray-500 rounded-lg " 
             />
         </div>
