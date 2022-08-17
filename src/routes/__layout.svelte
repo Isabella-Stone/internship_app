@@ -4,7 +4,7 @@
     import Auth from "../components/Auth.svelte";
     import {user} from "../stores/authStore.js";
     import {loadJobs} from "../stores/store.js";
-    import Form from "../components/Form.svelte";
+    import Form from "../../src/components/Form.svelte";
     import "../app.css";
 
     user.set(supabase.auth.user());
