@@ -1,2 +1,2 @@
 View deployed website at https://jobtracker.stoneisabella.com
-![image](https://user-images.githubusercontent.com/52970853/185696902-4bbac81a-359e-4fc5-a74c-83c01a7af74d.png)
+![image](https://user-images.githubusercontent.com/52970853/185697932-aef2c5e4-de55-4f3c-861e-0004b773c666.png)
