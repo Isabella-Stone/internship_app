@@ -17,15 +17,18 @@
     })
 </script>
 
+<!-- title displayed on tab -->
 <svelte:head>
     <title>Job Tracker</title>
 </svelte:head>
 
 <div>
+    <!-- if user is logged in, show jobs -->
     {#if $user}
         <Nav />
         <slot />
         <Form />
+    <!-- else, prompt them to login -->
     {:else}
         <Auth />
     {/if}    

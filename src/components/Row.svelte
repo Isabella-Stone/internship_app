@@ -1,7 +1,6 @@
 <script>
     import {deleteJob} from "../stores/store.js";
     import {editJob} from "../stores/store.js";
-    import {editStatus} from "../stores/store.js";
     export let job; //accept prop
 
     let showSave = false;
@@ -15,6 +14,7 @@
     function saveRow() {
         showSave = false;
 
+        //call function from store to edit job fields
         editJob(document.getElementById("companyId").innerHTML, //newCompany
                 document.getElementById("titleId").innerHTML,   //newTitle 
                 document.getElementById("portalId").innerHTML,  //newPortal

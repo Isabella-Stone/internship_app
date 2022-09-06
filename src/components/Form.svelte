@@ -10,27 +10,19 @@
 
     //just to save the internship to the list, each row will be a list
     const handleSubmit = () => {
-        // console.log(company);
-        // console.log(title);
-        // console.log(link);
-        // console.log(due);
-        // console.log(outcome);
-        addJob(company, title, link, due, outcome, $user.id, Date.now()) //defined in store
+        //on submit, call addJob function from store to add job to db
+        addJob(company, title, link, due, outcome, $user.id, Date.now())
         company = '';
         title = '';
         link = '';
         due = '';
         outcome = '';
     } 
-
-
-    //max-w-lg
 </script>
 
 <form on:submit|preventDefault={handleSubmit}>
 
 <div class="flex flex-row justify-center pb-10">
-    <!-- <div class="flex flex-row justify-center h-screen"> -->
         <div class="flex flex-col text-sm mb-2 px-3">
             <label for="company" class="font-bold mb-2 text-gray-800 float-left">
                 Company
